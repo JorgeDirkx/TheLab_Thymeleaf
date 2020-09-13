@@ -1,0 +1,42 @@
+SpringBoot and Thymeleaf basic setup:
+1. Maven project with dependencies
+2. Developer Tools:
+This spring-boot-devtools helps to disable the caches
+and enable hot swapping so that developers will always see the last changes. Good for development. Read this – Spring Boot – Developer tools Try to modify the Thymeleaf templates or properties files, refresh the browser
+to see the changes take effect immediately.
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-devtools</artifactId>
+	<optional>true</optional>
+</dependency>
+3. Controller
+4. Main app: @SpringBootApplication
+5. Thymeleaf + Static files
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-spring-mvc-static-content
+5.1 For Thymeleaf template files, put in src/main/resources/templates/
+src/main/resources/templates/welcome.html
+5.2 Spring Boot common application properties
+src/main/resources/application.properties
+
+welcome.message: xxxxxxx
+
+spring.thymeleaf.cache=false
+5.3 For Static files like CSS or JS, put in src/main/resources/static/
+src/main/resources/static/css/main.css
+6. Unit Test
+
+MockMvc to test the Spring MVC controller.
+
+7. Demo
+URL = http://localhost:8080
+URL = http://localhost:8080/hello?name=abc
+
+8. Create an executable JAR
+
+For deployment, just normal Maven package to create an executable JAR file.
+
+$ mvn clean package
+
+$ java -jar target\web-thymeleaf-1.0.jar
+
+
